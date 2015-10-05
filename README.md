@@ -28,12 +28,12 @@ When the user selects the MusicBrainz link from the navigation bar, the front en
 *	Number of tracks on the release
 *	Ability to add the release to the user's favourites.
 
-![musicBrianz.png](https://bitbucket.org/repo/Ee5ebB/images/1111611485-musicBrianz.png)
+![musicBrianz.png](https://bitbucket.org/repo/Ee5ebB/images/2739184105-musicBrianz.png)
 
 ### User favourites
 When the user selects the Favourites link from the navigation bar, the front end will show the user's favourite artists and release in two different lists. The user should have the ability to remove artists and release from their favourites. The user's favourite can either be stored in local browser storage, cookies or a session variable. The information **does not need to be persisted to a backend system**.
 
-![Favourites.png](https://bitbucket.org/repo/Ee5ebB/images/384088296-Favourites.png)
+![Favourites.png](https://bitbucket.org/repo/Ee5ebB/images/4147997301-Favourites.png)
 
 ## Supporting documentation
 * The MusicBrainz API is well documented and the information can be found at http://musicbrainz.org/doc/Development/XML_Web_Service/Version_2/Search
