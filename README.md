@@ -13,6 +13,9 @@
 ## What is expected?
 The assessment requires you to build a front end to allow an end user to search for their favourite artist using the last.fm API and add the artist to a list of favourite artists. Further to this, the front should allow the user to find the releases for a specific artist, and add releases to their favourites. Finally the front end should allow the user to see their favourites and update their favourites.
 
+*** Junior developer role***
+Do not implement the favouriting functionality nor implement the releases functionality mentioned.
+
 ![Landing Page.png](https://bitbucket.org/repo/Ee5ebB/images/2971093355-Landing%20Page.png)
 
 ### Artist search
