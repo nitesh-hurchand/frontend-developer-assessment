@@ -1,0 +1,77 @@
+
+<div>
+  <div>
+    <h2>Search Last.fm</h2>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for ..." [(ngModel)]="searchNameCriteria">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="searchArtists()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div>
+    <h3>Search results:</h3>
+    <hr/>
+    <div>
+      <button class="btn btn-default" type="button" (click)="open(content)">Show short-list</button>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Artist Name</th>
+          <th></th>
+        </tr>
+      </thead> 
+      <tbody> 
+        <tr *ngFor="let artist of artists">
+          <td><img src="{{artist.url}}" alt="{{artist.name}}" class="img-thumbnail"></td> 
+          <td>{{artist.name}}</td> 
+          <td>
+            <button class="btn btn-default" type="button" (click)="addtoShortList(artist)">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+          </td> 
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">My short list.</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Artist Name</th>
+                <th></th>
+              </tr>
+            </thead> 
+            <tbody> 
+              <tr *ngFor="let artist of shortList">
+                <td>
+                  <button class="btn btn-default" type="button" (click)="addToFavourites(artist)">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </button></td> 
+                <td>{{artist.name}}</td>
+                <td>
+                  <button class="btn btn-default" type="button" (click)="removeFromShortList(artist)">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody> 
+          </table>
+        </div>
+    </div>
+  </ng-template>
+

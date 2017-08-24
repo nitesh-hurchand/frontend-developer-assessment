@@ -1,0 +1,61 @@
+
+<div>
+  <div>
+    <h3>Favourites.</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Artist Name</th>
+          <th></th>
+        </tr>
+      </thead> 
+      <tbody> 
+        <tr *ngFor="let artist of favourites;let idx = index">
+          <td colspan="3">
+            <table class="table">
+              <tr>
+                <td>
+                  <button class="btn btn-default" type="button"
+                  (click)="removeFromFavourites(artist)">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                  </button>
+                </td>
+                <td>{{artist.name}}</td>
+                <td><button class="btn btn-default" type="button"
+                  (click)="toggleReleaseView(artist)">Show releases</button></td>
+              </tr>
+            </table>
+            <table [ngClass]="(artist.showReleases) ? 'table': 'table collapse'">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Year</th>
+                  <th>Title</th>
+                  <th>Release label</th>
+                  <th>Number of tracks</th>
+                </tr>
+              </thead> 
+              <tbody>
+                <tr *ngFor="let release of artist.releases">
+                    <td>
+                      <button class="btn btn-default" type="button"
+                      (click)="removeFromFavourites(artist,release)">
+                      <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td>{{release.year}}</td>
+                    <td>{{release.title}}</td>
+                    <td>{{release.label}}</td>
+                    <td>{{release.numOfTracks}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div>
+
+

@@ -1,0 +1,65 @@
+
+<div class="container-fluid">
+  <div>
+    <h2>Search MusicBrainz</h2>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for ..." [(ngModel)]="searchNameCriteria">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="searchArtists()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div>
+    <h3>Search results:</h3>
+    <hr/>
+        <table class="table">
+      <thead>
+        <tr>
+          <th>Artist Name</th>
+          <th></th>
+        </tr>
+      </thead> 
+      <tbody> 
+        <tr *ngFor="let artist of artists;let idx = index">
+          <td colspan="2">
+            <table class="table">
+              <tr>
+                <td>{{artist.name}}</td>
+                <td><button class="btn btn-default" type="button"
+                  (click)="toggleReleaseView(artist)">Show releases</button></td>
+              </tr>
+            </table>
+            <table [ngClass]="(artist.showReleases) ? 'table': 'table collapse'">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Year</th>
+                  <th>Title</th>
+                  <th>Release label</th>
+                  <th>Number of tracks</th>
+                </tr>
+              </thead> 
+              <tbody>
+                <tr *ngFor="let release of artist.releases">
+                    <td>
+                      <button class="btn btn-default" type="button"
+                      (click)="addToFavourites(artist,release)">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td>{{release.year}}</td>
+                    <td>{{release.title}}</td>
+                    <td>{{release.label}}</td>
+                    <td>{{release.numOfTracks}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div>
+
