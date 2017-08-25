@@ -53,7 +53,7 @@ export class UserService {
         let i = this.findIndexInFavourites(artist.name);
         // not found
         if (i < 0) {
-            this.favourites.push(artist);
+            this.favourites.push(new Artist(artist.name, artist.arid, artist.url, [], false));
             i = this.favourites.length - 1;
         }
 
