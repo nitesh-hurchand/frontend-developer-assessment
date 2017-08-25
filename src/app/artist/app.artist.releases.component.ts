@@ -22,12 +22,15 @@ export class AppArtistReleasesComponent implements OnInit {
     if (this.searchNameCriteria.trim() === '') {
       this.artists = [];
     } else {
-      this.artists = this.artistService.searchArtists(this.searchNameCriteria);
+      this.artists = this.artistService.searchArtistsFromMusicBrainz(this.searchNameCriteria);
     }
   }
 
   toggleReleaseView(artist: Artist): void {
     console.log('toggle release view');
+    if (!artist.releases || artist.releases.length == 0) {
+      artist.releases = this.artistService.searchReleasesFromMusicBrainz(artist);
+    }
     artist.showReleases = !artist.showReleases;
   }
 
