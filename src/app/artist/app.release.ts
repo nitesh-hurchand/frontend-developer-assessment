@@ -1,6 +1,8 @@
 export class Release {
-    year = '';
-    title = '';
-    label = '';
-    numOfTracks = 0;
+    constructor(public year: string,
+    public title: string = '',
+    public label: string = '',
+    public numOfTracks: number = 0){
+
+            }
 }

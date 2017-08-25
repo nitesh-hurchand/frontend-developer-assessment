@@ -22,7 +22,7 @@ export class AppArtistReleasesComponent implements OnInit {
     if (this.searchNameCriteria.trim() === '') {
       this.artists = [];
     } else {
-      this.artistService.searchArtists(this.searchNameCriteria).then(artists => this.artists = artists);
+      this.artists = this.artistService.searchArtists(this.searchNameCriteria);
     }
   }
 

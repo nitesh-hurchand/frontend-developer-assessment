@@ -1,8 +1,12 @@
 import { Release } from './app.release';
 
 export class Artist {
-    name = '';
-    url = '';
-    releases: Release[] = Array<Release>();
-    showReleases = false;
+    constructor(
+    public name: string,
+    public arid: string = '',
+    public url: string = '',
+    public releases: Release[] = [],
+    public showReleases: boolean = false){
+
+            }
 }

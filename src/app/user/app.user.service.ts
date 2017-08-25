@@ -35,10 +35,18 @@ export class UserService {
         return i;
     }
 
-    getFavourites(): Promise<Artist[]> {
-        if (!this.favourites && localStorage.getItem('fav') != null) {
-            this.favourites = JSON.parse(localStorage.getItem('fav'));
+    checkFavourites(){
+        if (!this.favourites) {
+            if (localStorage.getItem('fav') != null) {
+                this.favourites = JSON.parse(localStorage.getItem('fav'));
+            } else {
+                this.favourites = [];
+            }
         }
+    }
+
+    getFavourites(): Promise<Artist[]> {
+        this.checkFavourites();
         return Promise.resolve(this.favourites);
     }
     addtoFavourites(artist: Artist, release?: Release) {
@@ -89,10 +97,8 @@ export class UserService {
         localStorage.setItem('fav', JSON.stringify(this.favourites));
     }
 
-    private findIndexInFavourites(artistName: string) {
-        if (!this.favourites) {
-            return -1;
-        }
+    private findIndexInFavourites(artistName: string) {        
+        this.checkFavourites();
         const i = this.favourites.findIndex((value, index, obj) => {
             if (value.name === artistName) {
                 return true;
